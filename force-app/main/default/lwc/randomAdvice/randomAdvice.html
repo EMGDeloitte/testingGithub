@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Random Advice" icon-name="utility:like">
+        <div class="slds-p-around_medium">
+            <lightning-button
+                label="Get me some advice"
+                variant="brand"
+                onclick={handleGetAdvice}
+                disabled={isLoading}
+            ></lightning-button>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <template if:true={advice}>
+                <p class="slds-m-top_medium slds-text-heading_small">{advice}</p>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-m-top_medium slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
